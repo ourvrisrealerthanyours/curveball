@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Inside Hallway
+  m_Name: Ball
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -98,11 +98,11 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.63
+        second: 0.75
       data:
         first:
           name: _Metallic
-        second: 0.42
+        second: 0.65
       data:
         first:
           name: _BumpScale
@@ -131,8 +131,8 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 0.1432049, g: 0.029411793, b: 1, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 0.014435568, g: 0.6544118, b: 0.17773974, a: 1}
+        second: {r: 0.14143598, g: 0.3098585, b: 0.8014706, a: 1}
