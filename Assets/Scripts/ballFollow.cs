@@ -6,8 +6,15 @@ public class ballFollow : MonoBehaviour {
 	public GameObject ballToFollow;
 	public float speed;
 	public GameObject gameManager;
+
+	public GameObject topWall;
+	public GameObject bottomWall;
+	public GameObject leftWall;
+	public GameObject rightWall;
+
 	private Vector3 paddlePosition;
 	private Vector3 ballPosition;
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,13 +24,24 @@ public class ballFollow : MonoBehaviour {
 		// get vector between paddle and ball
 		paddlePosition = transform.position;
 		Vector3 paddleDirection = ballPosition - paddlePosition;
+
 		paddleDirection.z = 0;
-		// remove z component from vector
-		// normalize vector
-//		paddleDirection.Normalize();
-		// multiply by speed
 		paddleDirection *= speed;
 		// apply to this
 		transform.position += paddleDirection * Time.deltaTime;
+
+		transform.position = new Vector3 (
+			Mathf.Clamp (
+				transform.position.x,
+				leftWall.transform.position.x + this.transform.lossyScale.x / 2,
+				rightWall.transform.position.x - this.transform.lossyScale.x / 2
+			),
+			Mathf.Clamp (
+				transform.position.y,
+				bottomWall.transform.position.y + this.transform.lossyScale.y / 2,
+				topWall.transform.position.y - this.transform.lossyScale.y / 2
+			),
+			transform.position.z
+		);
 	}
 }
