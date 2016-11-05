@@ -570,6 +570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLives: 3
   playerLives: 3
+  level: 1
 --- !u!114 &1021211653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,6 +858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballToFollow: {fileID: 1425454990}
   speed: 3
+  gameManager: {fileID: 1021211651}
 --- !u!23 &1562976199
 MeshRenderer:
   m_ObjectHideFlags: 0

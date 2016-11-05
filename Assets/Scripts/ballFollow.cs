@@ -5,11 +5,13 @@ public class ballFollow : MonoBehaviour {
 
 	public GameObject ballToFollow;
 	public float speed;
+	public GameObject gameManager;
 	private Vector3 paddlePosition;
 	private Vector3 ballPosition;
 	
 	// Update is called once per frame
 	void Update () {
+		speed = gameManager.GetComponent<livesManager> ().level * 2;
 		// get ball position
 		ballPosition = ballToFollow.transform.position;
 		// get vector between paddle and ball

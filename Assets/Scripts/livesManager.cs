@@ -5,6 +5,7 @@ public class livesManager : MonoBehaviour {
 
 	public int enemyLives = 3;
 	public int playerLives = 3;
+	public int level = 1;
 	// Use this for initialization
 	void Start () {
 	
@@ -28,6 +29,8 @@ public class livesManager : MonoBehaviour {
 		playerLives--;	
 		if (playerLives == 0) {
 			Debug.Log("you dead, huh");
+			enemyLives = 3;
+			playerLives = 3;
 		}
 	}
 
@@ -36,6 +39,8 @@ public class livesManager : MonoBehaviour {
 		enemyLives--;
 		if (enemyLives == 0) {
 			Debug.Log("he dead, doe");
+			enemyLives = 3;
+			level++;
 		}
 	}
 }
