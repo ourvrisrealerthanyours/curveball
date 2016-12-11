@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class addInitalForce : MonoBehaviour {
+public class ballManager : MonoBehaviour {
 
 	// Use this for initialization
 	public float thrust;
-	public Rigidbody rb;
-	private Vector3 pos;
+	public GameObject gameManager;
+	private Rigidbody rb;
 	private Vector3 vel;
 	private Vector3 spin;
 	void Start () {
@@ -17,12 +17,26 @@ public class addInitalForce : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		pos = transform.position;
 		vel = rb.velocity;
 		spin = rb.angularVelocity;
-//		rb.AddForce (-pos.x * 4f, (-pos.y + 5f) * 4f, 0f);
-//		Debug.Log(Vector3.Cross(spin, vel));
 		rb.AddForce (Vector3.Cross(vel, spin));
+	}
+
+	public void reset() {
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
+		transform.position = new Vector3 (0f, 5f, 0f);
+	}
+
+	public void spank () {
+		rb.AddForce (2, 4, 10, ForceMode.Impulse);
+	}
+
+	public void pause () { 
+		Debug.Log ("Pausing");
+
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
 	}
 }
 	
