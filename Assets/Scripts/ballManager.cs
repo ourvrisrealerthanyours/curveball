@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class addInitalForce : MonoBehaviour {
+public class ballManager : MonoBehaviour {
 
 	// Use this for initialization
 	public float thrust;
@@ -22,11 +22,21 @@ public class addInitalForce : MonoBehaviour {
 		rb.AddForce (Vector3.Cross(vel, spin));
 	}
 
-	public void reInitialize () {
+	public void reset() {
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
 		transform.position = new Vector3 (0f, 5f, 0f);
+	}
+
+	public void spank () {
 		rb.AddForce (2, 4, 10, ForceMode.Impulse);
+	}
+
+	public void pause () { 
+		Debug.Log ("Pausing");
+
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
 	}
 }
 	

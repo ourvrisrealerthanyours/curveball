@@ -15,17 +15,11 @@ public class handleCollision : MonoBehaviour {
 	void Start () {
 		ballCollider = ball.GetComponent<Collider>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void OnTriggerEnter (Collider other) {
 		if (other == ballCollider) {
 			Debug.Log ("Wall hit");
-			gameManager.GetComponent<livesManager> ().decrementLives (Side.ToString());
-			ball.GetComponent<addInitalForce>().reInitialize ();
+			gameManager.GetComponent<livesManager> ().wallHit (Side.ToString());
 		}
 	}
 
