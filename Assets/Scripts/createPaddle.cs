@@ -13,15 +13,7 @@ public class createPaddle : MonoBehaviour {
 
 	void Awake()
 	{
-		Debug.Log("awake");
-////		attachPoint = GetComponent<Rigidbody> ();
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
-//		var paddle = GameObject.Instantiate(prefab);
-//		paddle.transform.position = attachPoint.transform.position;
-//		Debug.Log (attachPoint.transform.position);
-//
-//		joint = paddle.AddComponent<FixedJoint>();
-//		joint.connectedBody = attachPoint;
 	}
 
 	void FixedUpdate() {
@@ -29,12 +21,9 @@ public class createPaddle : MonoBehaviour {
 		if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger)) {
 			paddle = GameObject.Instantiate (prefab);
 			paddle.transform.position = attachPoint.transform.position;
+			paddle.transform.rotation = attachPoint.transform.rotation;
 			joint = paddle.AddComponent<FixedJoint>();
 			joint.connectedBody = attachPoint;
-//			var rb = paddle.GetComponent<Rigidbody> ();
 		}
-//		Debug.Log ("Fixed update");
-//		paddle.transform.position = attachPoint.transform.position;
-//		Debug.Log (attachPoint.transform.position);
 	}
 }
