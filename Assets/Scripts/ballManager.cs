@@ -12,7 +12,7 @@ public class ballManager : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		rb.AddForce (2, 4, 10, ForceMode.Impulse);
-		rb.angularVelocity = new Vector3 (0f, 0.6f);
+//		rb.angularVelocity = new Vector3 (0f, 0.6f);
 	}
 	
 	// Update is called once per frame
@@ -29,7 +29,8 @@ public class ballManager : MonoBehaviour {
 	}
 
 	public void spank () {
-		rb.AddForce (2, 4, 10, ForceMode.Impulse);
+//		rb.AddForce (2, 4, 10, ForceMode.Impulse);
+		rb.transform.position = new Vector3(0f, 5f, -10f);
 	}
 
 	public void pause () { 

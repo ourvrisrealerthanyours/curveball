@@ -19,7 +19,7 @@ public class livesManager : MonoBehaviour {
 		
 		bm = ball.GetComponent<ballManager> ();
 		UpdateScoreDisplay ();
-		levelDisplay.text = "BOOB";
+		levelDisplay.text = "";
 		enemyLives = enemyLivesPerLevel;
 	}
 
@@ -45,6 +45,8 @@ public class livesManager : MonoBehaviour {
 		playerLives--;
 		if (playerLives == 0) {
 			playerDies ();
+		} else {
+			nextPoint ();
 		}
 	}
 
